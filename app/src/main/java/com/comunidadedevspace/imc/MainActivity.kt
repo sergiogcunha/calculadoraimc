@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         //criar variavel e associar componente de UI
 
         val edtPeso = findViewById<TextInputEditText>(R.id.edt_peso)
-        val edtAlt  = findViewById<TextInputEditText>(R.id.edt_altura)
+        val edtAlt = findViewById<TextInputEditText>(R.id.edt_altura)
 
         // recurperar o botão da tela
 
@@ -24,14 +25,28 @@ class MainActivity : AppCompatActivity() {
         // Calcular
 
         btnCalcular.setOnClickListener {
-            val peso: Float = edtPeso.text.toString().toFloat() //pego o texto digitado
-            val Alt : Float = edtAlt.text.toString().toFloat() // pego a altura
+            val pesoStr: String = edtPeso.text.toString() //pego o texto digitado
+            val altStr: String = edtAlt.text.toString() // pego a altura
 
-            val AltQ2 = Alt * Alt
-            val Resultado = peso / AltQ2
-            println("seu imc é:" + Resultado)
+            if (pesoStr == "" || altStr == "") {
+                Snackbar.make(
+                    edtAlt,
+                    "Preencher todos os campos",
+                    Snackbar.LENGTH_LONG
+                ).show()
+                // mensagem ao usuário
+            } else {
+
+                val peso = pesoStr.toFloat()
+                val altura = altStr.toFloat()
+
+                val alturaq2 = altura * altura
+                val resultado = peso/ alturaq2
+
+                println (" teste " + resultado)
+
+
+            }
         }
-
-
     }
 }
