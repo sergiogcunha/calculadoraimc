@@ -1,5 +1,6 @@
 package com.comunidadedevspace.imc
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -41,9 +42,17 @@ class MainActivity : AppCompatActivity() {
                 val altura = altStr.toFloat()
 
                 val alturaq2 = altura * altura
-                val resultado = peso/ alturaq2
+                val resultado = peso / alturaq2
 
-                println (" teste " + resultado)
+                // navegar para proxima tela
+                // criar o layout da proxma tela
+                // passar dados para proxima tela
+
+                //intent  - class do proprio android / implicita e explicita
+                val intent = Intent(this, ResultActivity::class.java)
+                intent.putExtra(KEY_RESULT_IMC,resultado) // chave para ligar as activity
+                startActivity(intent)
+                println("sergio teste " + resultado)
 
 
             }
