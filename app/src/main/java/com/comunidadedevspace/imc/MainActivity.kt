@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
             if (pesoStr == "" || altStr == "") {
                 Snackbar.make(
-                    edtAlt,
+                    edtPeso,
                     "Preencher todos os campos",
                     Snackbar.LENGTH_LONG
                 ).show()
@@ -50,10 +50,12 @@ class MainActivity : AppCompatActivity() {
 
                 //intent  - class do proprio android / implicita e explicita
                 val intent = Intent(this, ResultActivity::class.java)
-                intent.putExtra(KEY_RESULT_IMC,resultado) // chave para ligar as activity
+                intent.putExtra(KEY_RESULT_IMC, resultado) // chave para ligar as activity
                 startActivity(intent)
-                println("sergio teste " + resultado)
 
+                //cores
+                // EditText background + icone
+                // Gradiente + icone + titulo + descricao
 
             }
         }
