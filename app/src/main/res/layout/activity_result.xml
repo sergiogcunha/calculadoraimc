@@ -52,9 +52,9 @@
             android:layout_marginBottom="48dp"
             android:gravity="center"
             android:maxLength="5"
+            android:textColor="@color/white"
             android:textSize="64sp"
             android:textStyle="bold"
-            android:textColor="@color/white"
             tools:text="23.66" />
 
     </LinearLayout>
@@ -70,8 +70,8 @@
         android:id="@+id/tv_classificacao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
         android:textSize="24sp"
+        android:textStyle="bold"
         tools:text="NORMAL" />
 
 </LinearLayout>

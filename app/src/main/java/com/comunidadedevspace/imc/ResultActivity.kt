@@ -16,30 +16,27 @@ class ResultActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_result)
 
-        val result = intent.getFloatExtra(KEY_RESULT_IMC,0f)
+        val result = intent.getFloatExtra(KEY_RESULT_IMC, 0f)
 
         val tvResult = findViewById<TextView>(R.id.tv_result)
         val tvClassificacao = findViewById<TextView>(R.id.tv_classificacao)
 
         tvResult.text = result.toString()
 
-        val (classificacao : String,colorRes) = if (result <= 18.5f){
+        val (classificacao: String, colorRes) = if (result <= 18.5f) {
             "MAGREZA" to R.color.imc_magreza
-        } else if (result > 18.5f && result <= 24.9f){
+        } else if (result > 18.5f && result <= 24.9f) {
             "NORMAL" to R.color.imc_normal
-        } else if (result > 25f && result <=29.9f){
+        } else if (result > 25f && result <= 29.9f) {
             "SOBREPESO" to R.color.imc_sobrepeso
-        } else if (result > 30 && result <= 39.9f){
+        } else if (result > 30 && result <= 39.9f) {
             "OBESIDADE" to R.color.imc_obesidade
         } else {
             "OBESIDADE GRAVE" to R.color.imc_obesidade_grave
         }
 
         tvClassificacao.text = classificacao
-        tvClassificacao.setTextColor(ContextCompat.getColor(this,colorRes))
-        //println("Sergio Resultado " + result)
-
-
+        tvClassificacao.setTextColor(ContextCompat.getColor(this, colorRes))
 
 
     }
